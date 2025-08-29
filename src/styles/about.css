@@ -1,0 +1,215 @@
+/* About Section Styles */
+.about {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.about-text {
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+.about-text p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-secondary);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.stat {
+  background: var(--bg-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.stat:hover::before {
+  transform: translateX(0);
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.stat h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1;
+}
+
+.stat p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  animation: slideInRight 0.8s ease forwards;
+}
+
+.skill-category {
+  background: var(--bg-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.skill-category:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+.skill-category h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.skill-category h3::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.skill-tag {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* Skill category icons */
+.skill-category:nth-child(1) h3::before {
+  background: linear-gradient(135deg, #61dafb, #21d4fd);
+}
+
+.skill-category:nth-child(2) h3::before {
+  background: linear-gradient(135deg, #f7931e, #dc2626);
+}
+
+.skill-category:nth-child(3) h3::before {
+  background: linear-gradient(135deg, #4caf50, #8bc34a);
+}
+
+.skill-category:nth-child(4) h3::before {
+  background: linear-gradient(135deg, #9c27b0, #673ab7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .stat {
+    padding: var(--spacing-lg);
+  }
+
+  .stat h3 {
+    font-size: 2rem;
+  }
+
+  .skill-category {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat h3 {
+    font-size: 1.75rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}

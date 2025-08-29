@@ -1,0 +1,210 @@
+/* Experience Section Styles */
+.experience {
+  background: linear-gradient(135deg, rgba(10, 10, 15, 0.95) 0%, rgba(14, 27, 60, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 40% 30%, rgba(129, 140, 248, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 60% 70%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.experience-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.experience-header {
+  margin-bottom: var(--spacing-lg);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.experience-header h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.experience-company {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.experience-duration {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.experience-achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.achievement-item {
+  background: var(--bg-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.achievement-item:hover::before {
+  transform: translateX(0);
+}
+
+.achievement-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.achievement-metric {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1;
+}
+
+.achievement-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.skill-badge {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.skill-badge:hover::before {
+  left: 100%;
+}
+
+.skill-badge:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Animation delays for staggered effect */
+.achievement-item:nth-child(1) {
+  animation: fadeInUp 0.8s ease 0.1s forwards;
+  opacity: 0;
+}
+
+.achievement-item:nth-child(2) {
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+
+.achievement-item:nth-child(3) {
+  animation: fadeInUp 0.8s ease 0.3s forwards;
+  opacity: 0;
+}
+
+.achievement-item:nth-child(4) {
+  animation: fadeInUp 0.8s ease 0.4s forwards;
+  opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-achievements {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .achievement-item {
+    padding: var(--spacing-lg);
+  }
+
+  .achievement-metric {
+    font-size: 2rem;
+  }
+
+  .experience-header h3 {
+    font-size: 1.75rem;
+  }
+
+  .experience-company {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-achievements {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-metric {
+    font-size: 1.75rem;
+  }
+
+  .skill-badge {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.8rem;
+  }
+}
