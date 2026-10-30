@@ -1,0 +1,387 @@
+/* ==========================================================================
+   CONTACT SECTION: RELIABLE HOSTED FORM & VERIFIED DIRECT CHANNELS
+   ========================================================================== */
+
+.contact-section {
+  background-color: #0b0d11;
+  border-top: 1px solid var(--border-subtle);
+  padding: 5.5rem 0;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+  }
+}
+
+/* 1. Form Wrapper (Primary Path) */
+.contact-form-wrapper {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 600px) {
+  .contact-form-wrapper {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-amber);
+  font-weight: 600;
+}
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field-label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.required-star {
+  color: var(--accent-amber);
+}
+
+.field-input,
+.field-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.field-input:focus,
+.field-textarea:focus {
+  border-color: var(--accent-amber);
+  background-color: var(--bg-surface-hover);
+  outline: none;
+}
+
+.field-input:disabled,
+.field-textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.field-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-submit-message {
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-amber);
+  color: var(--text-inverted);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  border: none;
+  align-self: flex-start;
+}
+
+.btn-submit-message:hover:not(:disabled) {
+  background-color: var(--accent-amber-hover);
+  transform: translateY(-1px);
+}
+
+.btn-submit-message:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Form Feedback States */
+.form-feedback {
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+}
+
+.success-feedback {
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feedback-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-emerald-soft);
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.feedback-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.feedback-body {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.feedback-body strong {
+  color: var(--text-primary);
+}
+
+.btn-send-another {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--accent-amber);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.error-feedback {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #f87171;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.error-body {
+  font-size: 0.875rem;
+  color: #fca5a5;
+  line-height: 1.5;
+}
+
+.error-fallback-link {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  margin-top: 0.35rem;
+}
+
+.error-fallback-link a {
+  color: var(--accent-amber);
+  text-decoration: underline;
+}
+
+/* 2. Secondary Direct Channels */
+.contact-secondary-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.channel-box {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.channel-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-amber);
+  font-weight: 600;
+}
+
+/* Proper Syntax: Anchor inside text element */
+.direct-item-text {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.channel-label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+}
+
+.channel-anchor {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(229, 138, 60, 0.4);
+  word-break: break-all;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.channel-anchor:hover {
+  color: var(--accent-amber);
+  text-decoration-color: var(--accent-amber);
+}
+
+/* Visible Fallback for users whose browser blocks mailto: */
+.fallback-copy-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  background-color: var(--bg-surface-elevated);
+  border: 1px dashed var(--border-medium);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+}
+
+.fallback-note {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.selectable-text {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+.btn-copy-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-hover);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-amber);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-left: auto;
+}
+
+.btn-copy-tag:hover {
+  background: var(--accent-amber-soft);
+  border-color: var(--accent-amber);
+}
+
+.btn-copy-tag.is-copied {
+  background: var(--accent-emerald-soft);
+  color: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+}
+
+.channel-subtext {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+/* Resume Box */
+.resume-box {
+  border-color: rgba(229, 138, 60, 0.35);
+  background: linear-gradient(135deg, rgba(229, 138, 60, 0.06) 0%, rgba(20, 23, 31, 1) 100%);
+}
+
+.resume-box-title {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.resume-box-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.btn-download-resume-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.25rem;
+  background-color: var(--accent-amber);
+  color: var(--text-inverted);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-download-resume-pill:hover {
+  background-color: var(--accent-amber-hover);
+  transform: translateY(-1px);
+}
+
+/* Links Stack */
+.links-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

@@ -1,0 +1,159 @@
+.skills-section {
+  background-color: #0b0d11;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bento-card-large {
+    grid-column: span 2;
+  }
+
+  .bento-card-wide {
+    grid-column: span 2;
+  }
+}
+
+/* Bento Card Style */
+.bento-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: border-color var(--transition-fast);
+}
+
+.bento-card:hover {
+  border-color: rgba(229, 138, 60, 0.3);
+}
+
+.bento-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.bento-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-amber);
+  font-weight: 600;
+}
+
+.bento-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.bento-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Skill Pills Cluster */
+.skill-pills-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.skill-pill {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.skill-pill.primary {
+  color: var(--text-primary);
+  border-color: rgba(229, 138, 60, 0.4);
+  background-color: rgba(229, 138, 60, 0.08);
+}
+
+.skill-pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.bento-footer-note {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.bento-footer-note span {
+  color: var(--accent-amber);
+}
+
+/* Tradeoff Principles Inside Bento */
+.tradeoff-principles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .tradeoff-principles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.principle-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.15rem;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.principle-number {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+.principle-title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.principle-body {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}

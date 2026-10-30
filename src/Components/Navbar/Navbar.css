@@ -1,0 +1,274 @@
+/* ==========================================================================
+   NAVBAR: PROFESSIONAL, STABLE, LOCKED HEIGHT
+   ========================================================================== */
+
+.navbar-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
+  background-color: rgba(12, 14, 18, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* 1. Brand / Identity — Locked, Never Shrinks, Never Wraps */
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.brand-role {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--accent-amber);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* 2. Desktop Navigation Links — Centered, Standard Labels, Controlled Spacing */
+.navbar-nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    display: flex;
+  }
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0.35rem 0;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent-amber);
+  transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-resume-link {
+  color: var(--accent-amber);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.nav-resume-link:hover {
+  color: var(--accent-amber-hover);
+}
+
+/* 3. Single Standout Action — Pill Button */
+.navbar-cta-wrapper {
+  display: none;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .navbar-cta-wrapper {
+    display: flex;
+  }
+}
+
+.btn-navbar-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1.35rem;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-amber);
+  color: var(--text-inverted);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-navbar-cta:hover {
+  background-color: var(--accent-amber-hover);
+  transform: translateY(-1px);
+}
+
+/* 4. Mobile Hamburger Button (< 768px) */
+.mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  flex-shrink: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
+
+.hamburger-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.hamburger-line.open-top {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.hamburger-line.open-bottom {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* 5. Mobile Menu Overlay Panel (< 768px) */
+.mobile-menu-panel {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background-color: rgba(14, 17, 23, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-medium);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 280ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mobile-menu-panel.is-visible {
+  max-height: 380px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+/* Comfortable Tap Target (48px height) */
+.mobile-nav-link {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav-link:hover {
+  color: var(--accent-amber);
+}
+
+.mobile-resume-link {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--accent-amber);
+}
+
+.mobile-cta-container {
+  padding-top: 1.25rem;
+}
+
+.btn-mobile-primary-cta {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-amber);
+  color: var(--text-inverted);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-mobile-primary-cta:hover {
+  background-color: var(--accent-amber-hover);
+}
