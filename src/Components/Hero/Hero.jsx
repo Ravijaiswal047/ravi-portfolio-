@@ -9,11 +9,12 @@ function Hero() {
   useEffect(() => {
     const typed = new Typed(typedEl.current, {
       strings: [
-        "Spring Boot & Microservices",
+        "Spring Boot 3 & Microservices Architecture",
+        "Labrox LIMS (9 Domain Microservices)",
         "Spring Cloud (Eureka & API Gateway)",
-        "Stateless Auth (Spring Security & JWT)",
-        "SQL Optimization & Relational Schema Design",
-        "React Frontend & RESTful Integrations"
+        "OpenSearch 8 & Keyset Pagination",
+        "Kafka Event Streams & Redis Caching",
+        "React 18 & Redux Toolkit Web Apps"
       ],
       typeSpeed: 45,
       backSpeed: 25,
@@ -54,7 +55,8 @@ function Hero() {
             I am Ravi Jaiswal, a <strong>Java Backend Developer with 2 years of enterprise experience</strong> building 
             scalable microservices, high-throughput REST APIs, and event-driven architectures. Proven track record 
             at <em>Cyber Impulses Software Solutions</em> reducing API latency by ~40% through SQL query optimization, 
-            hardening 15+ secured endpoints with JWT role-based access control, and engineering resilient service boundaries.
+            hardening 15+ secured endpoints with JWT role-based access control, and engineering <strong>Labrox LIMS</strong>—an 
+            enterprise platform of 9 domain-driven microservices with clinical workflow automation and search across 10M+ records.
           </p>
 
           {/* Primary Action — Prominent Download Resume Button for Clients */}
@@ -126,26 +128,30 @@ function Hero() {
               </div>
               <div className="console-line">
                 <span className="c-dim">03</span>
-                <span className="c-key">email:</span> <a href="mailto:javadeveloperravijaiswal@gmail.com" className="c-link">"javadeveloperravijaiswal@gmail.com"</a>
+                <span className="c-key">site:</span> <a href="https://ravi-portfolio-theta.vercel.app/" target="_blank" rel="noopener noreferrer" className="c-link">"ravi-portfolio-theta.vercel.app"</a>
               </div>
               <div className="console-line">
                 <span className="c-dim">04</span>
-                <span className="c-key">phone:</span> <a href="tel:+917042521638" className="c-link">"+91 70425 21638"</a>
+                <span className="c-key">email:</span> <a href="mailto:javadeveloperravijaiswal@gmail.com" className="c-link">"javadeveloperravijaiswal@gmail.com"</a>
               </div>
               <div className="console-line">
                 <span className="c-dim">05</span>
-                <span className="c-key">linkedin:</span> <a href="https://www.linkedin.com/in/ravi-jaiswal004/" target="_blank" rel="noopener noreferrer" className="c-link">"in/ravi-jaiswal004"</a>
+                <span className="c-key">phone:</span> <a href="tel:+917042521638" className="c-link">"+91 70425 21638"</a>
               </div>
               <div className="console-line">
                 <span className="c-dim">06</span>
-                <span className="c-key">github:</span> <a href="https://github.com/Ravijaiswal047" target="_blank" rel="noopener noreferrer" className="c-link">"github.com/Ravijaiswal047"</a>
+                <span className="c-key">linkedin:</span> <a href="https://www.linkedin.com/in/ravi-jaiswal004/" target="_blank" rel="noopener noreferrer" className="c-link">"in/ravi-jaiswal004"</a>
               </div>
               <div className="console-line">
                 <span className="c-dim">07</span>
-                <span className="c-key">experience:</span> <span className="c-val">"Cyber Impulses Software Solutions (2024–2026)"</span>
+                <span className="c-key">github:</span> <a href="https://github.com/Ravijaiswal047" target="_blank" rel="noopener noreferrer" className="c-link">"github.com/Ravijaiswal047"</a>
               </div>
               <div className="console-line">
                 <span className="c-dim">08</span>
+                <span className="c-key">stack:</span> <span className="c-val">["Java 21", "Spring Boot 3", "Kafka", "PostgreSQL 16", "OpenSearch 8"]</span>
+              </div>
+              <div className="console-line">
+                <span className="c-dim">09</span>
                 <span className="c-key">availability:</span> <span className="c-highlight">"Available for Full-Time Roles"</span>
               </div>
             </div>

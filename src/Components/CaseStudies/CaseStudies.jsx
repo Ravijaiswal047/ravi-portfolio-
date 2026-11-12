@@ -46,37 +46,39 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
     }
   },
   {
-    id: 'lims-enterprise',
+    id: 'labrox-lims',
     index: '02',
-    title: 'Enterprise Laboratory Information Management System (LIMS)',
-    metric: 'Clinical turnaround dropped from 14 mins to < 3 mins per batch',
-    metricDetail: '21 CFR Part 11 compliant specimen accessioning with real-time Westgard QC multi-rules verification.',
-    scope: 'Full-Stack / Backend Java Engineer • Clinical Specimen Engine',
-    stack: ['Java 17', 'Spring Boot 3.2', 'Spring Cloud', 'Apache Kafka', 'PostgreSQL 16', 'MongoDB', 'Redis', 'Docker', 'Flyway', 'JWT', 'React.js'],
-    summary: 'A distributed, cloud-ready Laboratory Information Management System (LIMS) orchestrating clinical sample intake, Code128 barcode generation, accessioning lifecycle management, freezer coordinate tracking (Freezer/Shelf/Rack/Box/Position), and automated pathologist review.',
+    title: 'Labrox LIMS — Laboratory Information Management System',
+    metric: 'Enterprise clinical search across 10M+ records under 80ms',
+    metricDetail: 'Architected 9 domain-driven Spring Boot 3 microservices with FDA 21 CFR Part 11 SHA-256 hash-chained audit trails.',
+    scope: 'Full Stack Developer • Cyber Impulses Enterprise Build',
+    stack: ['Java 21', 'Spring Boot 3', 'PostgreSQL 16', 'Apache Kafka', 'Redis', 'React 18', 'Redux Toolkit', 'OpenSearch 8', 'Docker', 'Spring Security 6', 'Material UI / PrimeReact'],
+    summary: 'An enterprise Laboratory Information Management System (LIMS) comprising 9 domain-driven Spring Boot 3 microservices integrated with a React 18 single-page application built with Vite. Engineered clinical patient worklists, sample accessioning state machines, and OpenSearch 8 search across 10M+ clinical records.',
     messyMiddle: {
-      headline: 'Kafka Real-Time Telemetry & Dual-Stage Analytical Verification',
-      story: 'Clinical diagnostic instruments generate continuous raw result feeds that overwhelmed synchronous database writes during morning hospital rush hours. We designed an event-driven architecture using Apache Kafka to ingest real-time instrument telemetry into MongoDB for raw storage, while publishing verification events to a Spring Boot analytical engine evaluating Westgard multi-rules (1-2s, 1-3s, 2-2s, R-4s) before writing final audited records to PostgreSQL 16 via Flyway migrations.',
-      tradeOff: 'Trade-off: Introduced eventual consistency for lab dashboard counters, but insulated the transactional database from telemetry write spikes and achieved zero dropped specimen readings.'
+      headline: 'Server-Side Finite State Machine & SRA Accessioning Guards',
+      story: 'In clinical laboratory operations, samples were occasionally submitted directly to department testing queues, bypassing critical pre-analytical accessioning. We engineered a server-side finite state machine enforcing mandatory Sample Receiving Area (SRA) accessioning before Department Receive, backed by HTTP 409 Conflict guards, keyset pagination in PostgreSQL 16, and OpenSearch 8 enterprise indexing for instant lookups across 10M+ records.',
+      tradeOff: 'Trade-off: Enforcing strict linear state machine transitions prevented unauthorized technician workflow bypasses and achieved full FDA 21 CFR Part 11 electronic signature compliance.'
     },
-    artifactLabel: '[ process artifact — Westgard QC evaluation rule & Kafka event stream pipeline ]',
-    artifactContent: `/* Specimen Lifecycle & Event Pipeline:
- * [RAW_ANALYTE_FEED] -> [Kafka: specimen.telemetry.in] -> [MongoDB Raw Sink]
- *                                     |
- *                      [Westgard QC Verification Consumer]
- *                      - Automated delta check vs historical records
- *                      - 21 CFR Part 11 electronic signature hashing
- *                                     |
- *                      [PostgreSQL 16 Transactional Ledger]
+    artifactLabel: '[ process artifact — Sample Receiving Area (SRA) State Machine & SHA-256 Audit Trail ]',
+    artifactContent: `/* Labrox LIMS: Specimen Custody Finite State Machine
+ * [COLLECTED] -> [SRA_ACCESSIONING] -> [DEPARTMENT_RECEIVE] -> [TESTING] -> [VERIFIED]
+ *                        |
+ *   * HTTP 409 Conflict Guard: Cannot bypass SRA Accessioning
+ *   * SHA-256 Hash-Chained Audit Logs for Pathologist Sign-Off
+ *   * Keyset pagination & OpenSearch 8 for 10M+ patient records
  */
-@KafkaListener(topics = "specimen.telemetry.in", groupId = "lims-qc-engine")
-public void evaluateSpecimenQualityControl(SpecimenTelemetryEvent event) {
-    QCValidationResult result = westgardValidator.checkMultiRules(event.getAnalyteValues());
-    if (result.hasViolation()) {
-        flagSpecimenForPathologistReview(event.getAccessionId(), result.getViolations());
-    } else {
-        persistAuditedResult(event);
+@Transactional
+public SpecimenReceipt accessionSampleAtSRA(UUID specimenId, AccessionDTO dto) {
+    Specimen specimen = specimenRepository.findByIdWithLock(specimenId)
+        .orElseThrow(() -> new SpecimenNotFoundException("Specimen not found: " + specimenId));
+
+    if (specimen.getStatus() != SpecimenStatus.COLLECTED) {
+        throw new InvalidWorkflowStateException("HTTP 409: Sample must be in COLLECTED state prior to SRA accessioning.");
     }
+
+    specimen.setStatus(SpecimenStatus.SRA_RECEIVED);
+    specimen.setAuditHash(auditEngine.generateSha256Chain(specimen, dto));
+    return specimenRepository.save(specimen);
 }`,
     links: {
       github: 'https://github.com/Ravijaiswal047',

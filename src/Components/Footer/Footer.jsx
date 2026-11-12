@@ -40,8 +40,8 @@ function Footer() {
           </div>
           <div className="meta-col">
             <span className="meta-label">// ENTERPRISE STACK</span>
-            <span className="meta-value">Java 21 / 17 • Spring Boot 3 • Spring Cloud</span>
-            <span className="meta-value">MySQL • PostgreSQL • MongoDB • Redis</span>
+            <span className="meta-value">Java 21 • Spring Boot 3 • Spring Cloud</span>
+            <span className="meta-value">Kafka • Redis • OpenSearch 8 • PostgreSQL 16</span>
           </div>
           <div className="meta-col">
             <span className="meta-label">// LOCATION & STATUS</span>

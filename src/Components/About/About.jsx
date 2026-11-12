@@ -41,11 +41,12 @@ function About() {
                     <span className="timeline-date">Oct 2024 – Oct 2026</span>
                   </div>
                   <ul className="timeline-bullets">
-                    <li>Engineered and shipped client-facing REST APIs, cutting integration effort by ~30% and streamlining data flow.</li>
-                    <li>Architected microservices with Spring Cloud (Eureka Discovery, API Gateway), decoupling services for independent deployments.</li>
+                    <li>Engineered and delivered REST APIs for client-facing enterprise applications, reducing integration effort by ~30% and improving data exchange.</li>
+                    <li>Designed and implemented microservices using Spring Cloud (Eureka Server, API Gateway), enabling service discovery, centralized routing, and independent service deployments.</li>
+                    <li>Designed and developed <strong>Labrox LIMS</strong> comprising 9 domain-driven Spring Boot 3 microservices, clinical workflow automation, and enterprise OpenSearch across 10M+ records.</li>
                     <li>Optimized SQL queries and redesigned schemas, slashing average API response times by ~40% under production loads.</li>
-                    <li>Implemented stateless authentication and role-based authorization with Spring Security & JWT across 15+ secured endpoints.</li>
-                    <li>Integrated third-party APIs, payment gateways, and raised system reliability with JUnit test suites.</li>
+                    <li>Implemented stateless authentication and Role-Based Access Control (RBAC) using Spring Security & JWT across 15+ secured endpoints; integrated payment gateways.</li>
+                    <li>Improved reliability through JUnit test coverage, defect resolution, code reviews, and Agile/Scrum sprint execution.</li>
                   </ul>
                 </div>
               </div>
@@ -74,16 +75,16 @@ function About() {
               <h3 className="timeline-title">// EDUCATION & ACADEMIC CREDENTIALS</h3>
               <div className="education-cards">
                 <div className="edu-card">
-                  <div className="edu-year">2024</div>
+                  <div className="edu-year">2022–24</div>
                   <div className="edu-details">
                     <h4 className="edu-degree">Master of Computer Applications (MCA)</h4>
                     <span className="edu-school">Galgotias University, Greater Noida, UP</span>
-                    <span className="edu-grade">GPA: 7.56 / 10 • Computer Science</span>
+                    <span className="edu-grade">Computer Science & Engineering</span>
                   </div>
                 </div>
 
                 <div className="edu-card">
-                  <div className="edu-year">2021</div>
+                  <div className="edu-year">2018–21</div>
                   <div className="edu-details">
                     <h4 className="edu-degree">Bachelor of Computer Applications (BCA)</h4>
                     <span className="edu-school">PDM University, Haryana</span>
@@ -148,6 +149,14 @@ function About() {
 
             {/* Profiles Cluster */}
             <div className="sidebar-profiles-cluster">
+              <a 
+                href="https://ravi-portfolio-theta.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="sidebar-profile-btn live-portfolio"
+              >
+                🌐 ravi-portfolio-theta.vercel.app ↗
+              </a>
               <a 
                 href="https://www.linkedin.com/in/ravi-jaiswal004/" 
                 target="_blank" 

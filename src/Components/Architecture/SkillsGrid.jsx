@@ -32,13 +32,14 @@ function SkillsGrid() {
               and stateless REST APIs using Spring Boot and Spring Cloud.
             </p>
             <div className="skill-pills-cluster">
-              <div className="skill-pill primary">Core Java (8+)</div>
-              <div className="skill-pill primary">Spring Boot 3 / 2</div>
+              <div className="skill-pill primary">Java 21 / 8+</div>
+              <div className="skill-pill primary">Spring Boot 3</div>
               <div className="skill-pill primary">Spring Cloud</div>
-              <div className="skill-pill primary">Eureka Discovery</div>
+              <div className="skill-pill primary">Eureka Server</div>
               <div className="skill-pill primary">API Gateway</div>
               <div className="skill-pill">WebClient</div>
-              <div className="skill-pill">Spring Security (JWT)</div>
+              <div className="skill-pill">Spring Security 6 (JWT)</div>
+              <div className="skill-pill">Role-Based Access (RBAC)</div>
               <div className="skill-pill">Spring MVC</div>
               <div className="skill-pill">Spring Data JPA</div>
               <div className="skill-pill">Hibernate ORM</div>
@@ -53,20 +54,21 @@ function SkillsGrid() {
           {/* Bento Cell 2: Persistence & Data Modeling */}
           <div className="bento-card">
             <div className="bento-header">
-              <span className="bento-tag">// PERSISTENCE & DATA</span>
-              <h3 className="bento-title">Databases & Query Tuning</h3>
+              <span className="bento-tag">// PERSISTENCE, MESSAGING & SEARCH</span>
+              <h3 className="bento-title">Databases & Search Engines</h3>
             </div>
             <p className="bento-desc">
-              Relational schema design, query optimization reducing latency by ~40%, and polyglot persistence.
+              Relational data modeling, enterprise search across 10M+ records, and event streaming.
             </p>
             <div className="skill-pills-cluster">
+              <div className="skill-pill primary">PostgreSQL 16</div>
               <div className="skill-pill primary">MySQL</div>
-              <div className="skill-pill primary">PostgreSQL</div>
               <div className="skill-pill primary">MongoDB</div>
+              <div className="skill-pill primary">OpenSearch 8</div>
+              <div className="skill-pill">Apache Kafka</div>
               <div className="skill-pill">Redis (Cache & TTL)</div>
-              <div className="skill-pill">Flyway Migrations</div>
+              <div className="skill-pill">Keyset Pagination</div>
               <div className="skill-pill">Index Optimization</div>
-              <div className="skill-pill">ACID Concurrency Locks</div>
             </div>
           </div>
 
@@ -130,19 +132,22 @@ function SkillsGrid() {
           {/* Bento Cell 5: Frontend & Integrations */}
           <div className="bento-card">
             <div className="bento-header">
-              <span className="bento-tag">// CLIENT INTEGRATION</span>
+              <span className="bento-tag">// CLIENT ARCHITECTURE</span>
               <h3 className="bento-title">Frontend & Web Tech</h3>
             </div>
             <p className="bento-desc">
-              Bridging backend APIs with responsive, accessible user interfaces.
+              Building responsive, component-driven clinical and consumer interfaces.
             </p>
             <div className="skill-pills-cluster">
-              <div className="skill-pill primary">React.js</div>
-              <div className="skill-pill">JavaScript (ES6+)</div>
-              <div className="skill-pill">HTML5 & Semantic DOM</div>
-              <div className="skill-pill">CSS3 & Flex/Grid</div>
-              <div className="skill-pill">Bootstrap</div>
+              <div className="skill-pill primary">React 18</div>
+              <div className="skill-pill primary">Redux Toolkit</div>
               <div className="skill-pill">Vite Modern Tooling</div>
+              <div className="skill-pill">Material UI</div>
+              <div className="skill-pill">PrimeReact</div>
+              <div className="skill-pill">Formik & Yup</div>
+              <div className="skill-pill">Axios Interceptors</div>
+              <div className="skill-pill">JavaScript (ES6+)</div>
+              <div className="skill-pill">Bootstrap & CSS3</div>
             </div>
           </div>
 
